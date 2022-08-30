@@ -18,5 +18,31 @@
     </div>
   </form>
   
+
+
+<script>
+  function signup(){
+    let mail = document.getElementById("uemail").value
+    let pass = document.getElementById("upass").value
+    let user ={
+      'umail' : mail,
+      'upass' : pass
+    }
+
+    fetch("http:localhost:5501/signup",{
+      method :"post",
+      body : JSON.stringify(user),
+      header :{
+        "Content-Type" : "application/json",
+        'Authorization' : 'my-auth-token',
+      },
+    }).then(res =>{
+      res.json().then(data =>{
+        console.log(data);
+      })
+    })
+  }
+</script>
+
 </body>
 </html>
