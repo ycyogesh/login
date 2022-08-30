@@ -8,7 +8,7 @@ const nodemailer = require("nodemailer");
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 
-const saltRounds = 10;
+// const saltRounds = 10;
 app = express();
 app.use(cors());
 app.use(express.json());
@@ -23,6 +23,8 @@ var connection = mysql.createConnection({
 
   connection.connect(function (err){
     if(err){
-        console.log(error   )
+        console.log("connection errror"+err)
+        return;
     }
+    console.log("connected as:"+connection.threadId);
   })
