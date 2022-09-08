@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>token</title>
+</head>
+<body>
+    <script>
+        function gettoken(){
+            var currentUrl = windows.location.href;
+            params +(new URL(currenturl)).searchParams;
+          console.log("params--->",params);
+            let token = params.get("token");
+            fetch("http://localhost:5501/token?token="+token).then(res=>{
+                
+                console.log(res);
+                res.text().then(data=>{
+                    if(data){
+                        document.getElementById("result").innerText = "sucessuflly verified"
+                        document.getElementById("login").innerHTML = '<a href="./login.html" id="login"><button type"button">click to login</button></a>'
+                    }
+                    console.log("sucessfull",data);
+                })
+                
+            })
+            console.log(currentUrl);
+            }
+            gettoken()
+    </script>
+</body>
+</html>
