@@ -14,7 +14,7 @@
       <div><br></div>
       <div>Password</div>
       <div><input type="passowrd" name="pass" id="upass"></div>
-      <div><button type="button" onclick="signup()">submit</button></div>
+      <div><button type="button" onclick="signup()"></button></div>
     </div>
   </form>
   
@@ -29,10 +29,10 @@
       'upass' : pass
     }
 
-    fetch("http://localhost:5501/signup",{
-      method :"post",
-      body : JSON.stringify(data  ),
-      header :{
+    fetch("http://localhost:4000/signup",{
+      method :"POST",
+      body : JSON.stringify(data),
+      headers :{
         "Content-Type" : "application/json"
       },
     }).then(res =>{

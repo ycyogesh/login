@@ -31,7 +31,7 @@ var connection = mysql.createConnection({
   })
 
   //create a server
-  app.listen('5501',function (err){
+  app.listen('4000',function (err){
     if(err){
       console.log('connection error'+err);
     }
@@ -42,10 +42,11 @@ var connection = mysql.createConnection({
   
 //sign up
  app.post('/signup',(req,res)=>{
+  console.log("Entered Backend---------->");
     let data = req.body;
 
-    let sql =" select email from user where email=?";
-connection.query(sql,[data.email],(err,result)=> {
+    let sql ="select * from user where email=?";
+connection.query(sql,[data.mail],(err,result)=> {
   if(err) {
     console.log("error".err.stack)
     return;
